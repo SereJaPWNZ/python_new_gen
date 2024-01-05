@@ -42,4 +42,31 @@ class User:
         return self.login_attempts
 
 
-person1 = User("Andrey", "Petrov", 0, "vstu", "volgograd")
+class Admin(User):
+    """Предоставляет аспекты пользователя, с расширенными правами."""
+
+    def __init__(self, first_name, last_name, login_attempts=0, university=None, bpl=None):
+        """Инициализация атрибутов класса родителя."""
+        super().__init__(first_name,
+                         last_name,
+                         login_attempts,
+                         university,
+                         bpl)
+        self.privileges = ["разрешено добавлять сообщения",
+                           "разрешено удалять пользователей",
+                           "разрешено банить пользователей"]
+
+    def show_privileges(self):
+        """Выводит набор привилегий администратора."""
+        counter = 1
+        for privilege in self.privileges:
+            print(counter, "-", privilege)
+            counter += 1
+
+
+admin = Admin("Andrey",
+              "Petrov",
+              0,
+              "vstu",
+              "volgograd")
+admin.show_privileges()
