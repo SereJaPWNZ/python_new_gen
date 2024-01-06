@@ -64,17 +64,26 @@ class Battery:
         """Выводит информацию о мощности аккумулятора."""
         print(f"У данной машины мощность батареи {self.battery_size}-kWh.")
 
+    def upgrade_battery(self):
+        """Проверяет размер аккумулятора и устанавливать мощность равной 100"""
+        if self.battery_size != 100:
+            self.battery_size = 100
+            print("Мощность аккумулятора увеличена до 100 kWh.")
+
     def get_range(self):
         """Выводит приблизительный запас хода для аккумулятора."""
         if self.battery_size == 75:
             save_the_move = 260
         elif self.battery_size == 100:
             save_the_move = 315
-
         print(f"This car can go about {save_the_move} miles on a full charge.")
 
 
+# Создаем экземпляр электромобиля с аккумулятором по умолчанию
 my_tesla = ElectricCar("tesla", "x", 2015)
-print(my_tesla.get_descriptive_name())
-my_tesla.battery.describe_battery()
+# Вызываем get_range() для проверки запаса хода
+my_tesla.battery.get_range()
+# Вызываем upgrade_battery() для увеличения мощности аккумулятора
+my_tesla.battery.upgrade_battery()
+# Вызываем get_range() во второй раз для проверки изменения запаса хода
 my_tesla.battery.get_range()
