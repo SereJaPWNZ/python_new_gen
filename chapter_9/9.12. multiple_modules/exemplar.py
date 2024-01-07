@@ -4,6 +4,9 @@
 
 from admin import Admin
 
-admin = Admin("Sergey", "Shevtsov", "3434", "VolgSTU", "ffdfd")
+admin = Admin("Sergey",
+              "Shevtsov",
+              "3434",
+              "VolgSTU",
+              "ffdfd")
 admin.privileges.show_privileges()
-
