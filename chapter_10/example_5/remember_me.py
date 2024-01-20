@@ -16,17 +16,23 @@ def get_stored_username():
         return username
 
 
+def get_new_username():
+    """Запрашивает новое имя пользователя"""
+    username = input("Введите ваше имя:\n")
+    file_name = "username.json"
+    with open(file_name, "w") as fn:
+        json.dump(username, fn)
+        return username
+
+
 def great_user():
     """Приветствует пользователя по имени."""
     username = get_stored_username()
     if username:
-        print(f"Welcome back, {username}!")
+        print(f"Welcome back, {username.title()}!")
     else:
-        username = input("Введите ваше имя:\n")
-        file_name = "username.json"
-        with open(file_name, "w") as fn:
-            json.dump(username, fn)
-            print(f"\nWe'll remember you when you come back, {username.title()}!")
+        username = get_new_username()
+        print(f"\nWe'll remember you when you come back, {username.title()}!")
 
 
 great_user()
