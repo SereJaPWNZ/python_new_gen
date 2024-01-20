@@ -4,19 +4,29 @@ import json
 # Программа загружает имя пользователя, если оно было сохранено ранее.
 # В противном случае она запрашивает имя пользователя и сохраняет его.
 
-def great_user():
-    """Выводит приветствие"""
+def get_stored_username():
+    """Получает хранимое имя пользователя, если оно существует."""
+    file_name = "username.json"
     try:
-        with open("username.json") as un:
-            username = json.load(un)
+        with open(file_name) as fn:
+            username = json.load(fn)
     except FileNotFoundError:
+        return None
+    else:
+        return username
+
+
+def great_user():
+    """Приветствует пользователя по имени."""
+    username = get_stored_username()
+    if username:
+        print(f"Welcome back, {username}!")
+    else:
         username = input("Введите ваше имя:\n")
         file_name = "username.json"
         with open(file_name, "w") as fn:
             json.dump(username, fn)
             print(f"\nWe'll remember you when you come back, {username.title()}!")
-    else:
-        print(f"Welcome back, {username.title()}!")
 
 
 great_user()
