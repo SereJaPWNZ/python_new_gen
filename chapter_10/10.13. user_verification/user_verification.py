@@ -8,14 +8,14 @@
 # для получения правильного имени пользователя.
 
 import json
-
+file_name = "username.json"
 
 # Программа загружает имя пользователя, если оно было сохранено ранее.
 # В противном случае она запрашивает имя пользователя и сохраняет его.
 
+
 def get_stored_username():
     """Получает хранимое имя пользователя, если оно существует."""
-    file_name = "username.json"
     try:
         with open(file_name) as fn:
             username = json.load(fn)
@@ -25,22 +25,25 @@ def get_stored_username():
         return username
 
 
-def get_new_username():
+def get_new_username(entered_name=None):
     """Запрашивает новое имя пользователя"""
-    username = input("Введите ваше имя:\n")
-    file_name = "username.json"
+    if entered_name is None:
+        username = input("Введите ваше имя:\n")
+    else:
+        username = entered_name
     with open(file_name, "w") as fn:
         json.dump(username, fn)
-        return username
+    return username
 
 
 def great_user():
     """Приветствует пользователя по имени."""
     username = get_stored_username()
-    if username:
+    entered_name = input("Введите ваше имя:\n")
+    if username.lower() == entered_name.lower():
         print(f"Welcome back, {username.title()}!")
     else:
-        username = get_new_username()
+        username = get_new_username(entered_name)
         print(f"\nWe'll remember you when you come back, {username.title()}!")
 
 
