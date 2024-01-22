@@ -11,6 +11,13 @@ class NamesTestCase(unittest.TestCase):
                                             , "Joplin")
         self.assertEqual(formatted_name, "Janis Joplin")
 
+    def test_first_last_middle_name(self):
+        """Имена вида 'Wolfgang Amadeus Mozart' работают правильно?"""
+        formatted_name = get_formatted_name("Wolfgang",
+                                            "Mozart",
+                                            "Amadeus")
+        self.assertEqual(formatted_name, "Wolfgang Amadeus Mozart")
+
 
 if __name__ == '__main__':
     unittest.main()
