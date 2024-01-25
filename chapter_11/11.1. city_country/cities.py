@@ -10,5 +10,5 @@ while True:
     if country == 'q' or country == '':
         break
 
-    formatted_city = get_formatted_city("Volgograd", "Russia")
+    formatted_city = get_formatted_city(city, country)
     print(formatted_city)
