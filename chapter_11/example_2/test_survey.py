@@ -24,8 +24,5 @@ class TestAnonymousSurvey(unittest.TestCase):
             self.assertIn(response, self.my_survey.response)
 
 
-
-
-
 if __name__ == "__main__":
     unittest.main()
