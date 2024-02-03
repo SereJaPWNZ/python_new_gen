@@ -1,6 +1,7 @@
 import pycurl
 from io import BytesIO
 
+
 # Создаем буфер для хранения ответа
 buffer = BytesIO()
 
