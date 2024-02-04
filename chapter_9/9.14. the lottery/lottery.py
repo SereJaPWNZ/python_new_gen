@@ -14,4 +14,4 @@ winning_ticket = random.sample(elements, 4)
 winning_ticket = list(map(str, winning_ticket))
 
 # Выводим сообщение о выигрышном билете
-print(f"Билет, содержащий {("".join(winning_ticket)).upper()}, является выигрышным.")
+print(f"Билет, содержащий {(''.join(winning_ticket)).upper()}, является выигрышным.")
