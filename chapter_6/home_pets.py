@@ -30,5 +30,5 @@ pets = [dog_info, cat_info, hamster_info]
 # Вывод всей информации о каждом животном
 for pet in pets:
     for name_pet, chars in pet.items():
-        print(f'Имя питомца: {name_pet}\nцвет питомца: {chars['вид животного']}\nИмя владельца: {chars['владелец']}')
+        print(f'Имя питомца: {name_pet}\nцвет питомца: {chars["вид животного"]}\nИмя владельца: {chars["владелец"]}')
         print('-------------------------')
