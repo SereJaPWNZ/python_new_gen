@@ -1,6 +1,11 @@
+"""
+Этот модуль демонстрирует работу с библиотекой pycurl и BytesIO из модуля io.
+"""
+from io import BytesIO
+
 import pycurl
 import certifi
-from io import BytesIO
+
 
 buffer = BytesIO()
 c = pycurl.Curl()
